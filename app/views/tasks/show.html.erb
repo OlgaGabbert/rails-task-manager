@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="card">
+    <h5 class="card-header">My tasks</h5>
+    <div class="card-body">
+      <h5 class="card-title"><%= @task.title %>
+        <%= link_to "🗑", task_path(@task), method: :delete, data: { confirm: "Are you sure?" } %></h5>
+      <p class="card-text"><%= @task.details %></p>
+      <% if @task.completed %>
+        <input type="checkbox" checked>
+        <label for="task">Task is completed.</label>
+      <% else %>
+        <input type="checkbox"><label for="task">Task is not completed.</label><br>
+      <% end %>
+      <br><button class="btn btn-light"><%= link_to "Update", edit_task_path(@task) %></button><br>
+    </div>
+</div>
+<br><%= link_to "Back to list", tasks_path %><br>
